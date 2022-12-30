@@ -1,7 +1,5 @@
-class View {
-  constructor() {
+const readlineSync = require('readline-sync');
 
-  }
-}
+class View {}
 
-module.exports = View
+module.exports = View;

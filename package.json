@@ -1,0 +1,26 @@
+{
+  "name": "flashcards",
+  "version": "1.0.0",
+  "description": "## Введение Вам предстоит создать приложение для флэш-карт, которое должно работать как показано на Рисунке 1. Сосредоточьтесь на написании элегантного, объектно-ориентированного кода, не забывая при этом о качественном проектировании и об отборе лучших методов.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PenRomain/flashcards.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PenRomain/flashcards/issues"
+  },
+  "homepage": "https://github.com/PenRomain/flashcards#readme",
+  "keywords": [],
+  "dependencies": {
+    "@types/node": "^18.11.17",
+    "node": "^19.3.0",
+    "readline": "^1.3.0",
+    "readline-sync": "^1.4.10"
+  }
+}
