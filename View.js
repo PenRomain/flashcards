@@ -17,7 +17,9 @@ class View {
   }
 
   showQuestion(question) {
-    const userAnswer = readLineSync.question(`\n${question[this.counter]}\n`);
+    const userAnswer = readLineSync
+      .question(`\n${question[this.counter]}\n`)
+      .toLowerCase();
     if (userAnswer === question[this.counter + 1]) {
       console.log('Right!');
       this.counter += 3;
