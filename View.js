@@ -1,5 +1,6 @@
 const fs = require('fs').promises;
 const readLineSync = require('readline-sync');
+const clc = require('cli-color');
 
 class View {
   constructor() {
@@ -13,6 +14,7 @@ class View {
       );
     });
     const choice = readLineSync.question();
+    process.stdout.write(clc.reset);
     return choice;
   }
 
@@ -21,7 +23,10 @@ class View {
       .question(`\n${question[this.counter]}\n`)
       .toLowerCase();
     if (userAnswer === question[this.counter + 1].toLowerCase()) {
-      console.log(question[this.counter + 2]);
+      console.log(
+        clc.red.bgMagentaBright.underline(question[this.counter + 2])
+      );
+
       this.counter += 4;
       if (question[this.counter + 1] === undefined) {
         return true;
