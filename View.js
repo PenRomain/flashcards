@@ -35,6 +35,7 @@ class View {
       }
       this.showQuestion(question);
     }
+    return userAnswer;
   }
 
   showResult(question) {
