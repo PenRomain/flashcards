@@ -26,6 +26,8 @@ class View {
       console.log(
         clc.red.bgMagentaBright.underline(question[this.counter + 2])
       );
+      readLineSync.question();
+      process.stdout.write(clc.reset);
 
       this.counter += 4;
       if (question[this.counter + 1] === undefined) {
