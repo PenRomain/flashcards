@@ -14,6 +14,9 @@ class Controller {
 
   async printTopicsController(topics) {
     const choice = await this.view.showMenu(topics);
+    if (!choice) {
+      console.log('Была выбрана случайная тема:');
+    }
     return choice;
   }
 }
