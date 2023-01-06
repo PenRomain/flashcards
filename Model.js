@@ -9,7 +9,15 @@ class Model {
   }
 
   async getQuestion(topics, printTopic) {
-    const number = topics.find((el, i) => i === printTopic - 1);
+    let number;
+    if (!printTopic) {
+      number = topics[Math.floor(Math.random() * 3)];
+      console.log(number);
+    }
+    if (printTopic) {
+      number = topics.find((el, i) => i === printTopic - 1);
+    }
+
     const question = await fs.readFile(
       `${__dirname}/topics/${number}_flashcard_data.txt`,
       'utf-8'
