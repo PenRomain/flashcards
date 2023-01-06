@@ -1,4 +1,3 @@
-const fs = require('fs').promises;
 const readLineSync = require('readline-sync');
 const clc = require('cli-color');
 
@@ -8,14 +7,19 @@ class View {
   }
 
   showMenu(topics) {
-    topics.forEach((element, index) => {
-      console.log(
-        `${index + 1}. ${element[0].toUpperCase()}${element.slice(1)}\t`
-      );
-    });
-    const choice = readLineSync.question();
-    process.stdout.write(clc.reset);
-    return choice;
+    try {
+      topics.forEach((element, index) => {
+        console.log(
+          `${index + 1}. ${element[0].toUpperCase()}${element.slice(1)}\t`
+        );
+      });
+      const choice = readLineSync.question();
+      process.stdout.write(clc.reset);
+
+      return choice;
+    } catch (error) {
+      console.log('!!!!!!!!!!!!!!', error);
+    }
   }
 
   showQuestion(question) {
