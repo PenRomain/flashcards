@@ -4,6 +4,7 @@ const clc = require('cli-color');
 class View {
   constructor() {
     this.counter = 0;
+    this.score = 0;
   }
 
   showMenu(topics) {
@@ -23,29 +24,33 @@ class View {
   }
 
   showQuestion(question) {
+    if (question[this.counter + 1] === undefined) {
+      return true;
+    }
+
     const userAnswer = readLineSync
       .question(`\n${question[this.counter]}\n`)
       .toLowerCase();
-    if (userAnswer === question[this.counter + 1].toLowerCase()) {
-      console.log(
-        clc.red.bgMagentaBright.underline(question[this.counter + 2])
-      );
-      readLineSync.question();
-      process.stdout.write(clc.reset);
 
-      this.counter += 4;
-      if (question[this.counter + 1] === undefined) {
-        return true;
-      }
-      this.showQuestion(question);
+    if (userAnswer === question[this.counter + 1].toLowerCase()) {
+      this.score += 1;
     }
+    readLineSync.question();
+    process.stdout.write(clc.reset);
+
+    console.log(clc.red.bgMagentaBright.underline(question[this.counter + 2]));
+    readLineSync.question();
+    process.stdout.write(clc.reset);
+
+    this.counter += 4;
+
+    this.showQuestion(question);
+
     return userAnswer;
   }
 
   showResult(question) {
-    console.log(
-      `Вы ответили на ${this.counter / 4} из ${question.length / 4}!`
-    );
+    console.log(`Вы ответили на ${this.score} из ${question.length / 4}!`);
   }
 }
 
